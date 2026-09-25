@@ -15,13 +15,11 @@
 
 <body>
 
-
     {% include "header.html" %}
     <main>
         <article class="card">
 
             <h2>{{ val1 }}の詳しい天気</h2>
-
 
             <p>{{ val3 | replace('\n', '') | replace('。', '。<br><br>') | safe }}</p>
 
@@ -34,10 +32,8 @@
                 </a>
             </div>
 
-
         </article>
     </main>
-
 
     {% include "footer.html" %}
 

@@ -5,11 +5,8 @@ from datetime import datetime
 import requests
 from json import loads
 
-#flask型を作る
-app = Flask(__name__) #丸かっこ内は必ずこれ
+app = Flask(__name__) 
 
-# 気象庁のエリアコード（各都道府県の代表的な予報区コード）
-# 例: 東京都(130000), 大阪府(270000) など
 jp_47 = {
     "北海道": "016000", "青森県": "020000", "岩手県": "030000", "宮城県": "040000",
     "秋田県": "050000", "山形県": "060000", "福島県": "070000", "茨城県": "080000",
@@ -30,14 +27,9 @@ jp_47 = {
 
 
 def index():
-    #return文で「render_template」を使い、トップページにどのhtmlを使うか指定
+   
     return render_template("index.html", val1 = jp_47.keys())
-    #キーワード引数の先頭の変数は好きな名前でOK。今回は「val1」、「val2」。
-    #index.htmlの中で「val」という変数が使えるようになった。
-
-
-#今度はサブページにルール付け
-
+   
 @app.route('/result', methods=['POST'])
 def result():
 
@@ -123,11 +115,8 @@ def detail():
     return render_template("detail.html", val1 = key, val2 = f_date, val3 = text )
 
 
-
-#ルール付けが終わったら実行（複数のページにルール付けしても絶対一番最後）
-if __name__ == "__main__": #このappファイルが直接実行されたとき～という意味
+if __name__ == "__main__": 
     
-    app.run(debug=True) #開発中にわかりやすいように、エラーを表示するよう設定
-    # ↑ 公開時はFalseがおすすめ
+    app.run(debug=False) 
 
 

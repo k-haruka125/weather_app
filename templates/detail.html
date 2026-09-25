@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jquery.bgswitcher.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="nofollow">
+    <title>天気詳細</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+
+
+    {% include "header.html" %}
+    <main>
+        <article class="card">
+
+            <h2>{{ val1 }}の詳しい天気</h2>
+
+
+            <p>{{ val3 | replace('\n', '') | replace('。', '。<br><br>') | safe }}</p>
+
+            <div class="btn">
+                <a href="{{url_for('index')}}" class="top">
+                    <h3>TOP</h3>
+                </a>
+                <a href="#" onclick="history.back(); return false;" class="top">
+                    <h3>前のページ</h3>
+                </a>
+            </div>
+
+
+        </article>
+    </main>
+
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

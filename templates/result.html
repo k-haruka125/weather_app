@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/jquery.bgswitcher.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta name="robots" content="noindex">
+    <meta name="robots" content="nofollow">
+    <title>{{ val2 }}の３日間天気</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+
+
+    {% include "header.html" %}
+
+    <main>
+        <article>
+
+            <h1>{{ val2 }}の３日間天気</h1>
+            <p>日付をクリックするとさらに詳しく天気予報が見られます。</p>
+            <p>データの更新タイミングにより、</p>
+            <p>２日間の天気予報が表示されることがあります。</p>
+
+            <div class="table">
+                <table>
+
+                    <tr>
+                        <th>日付</th>
+                        <th>アイコン</th>
+                        <th>気温</th>
+                        <th>降水確率</th>
+                        <th>天気</th>
+                        <th>風力</th>
+                    </tr>
+
+                    {% for w in val1 %}
+                    <tr>
+                        <td><a href="detail?id={{ val2 }}">{{ w["date"] }}</a></td>
+                        <td><img src="{{ w['icon'] }}" alt=""></td>
+                        <td>{{ w["temp"] }}</td>
+                        <td>{{ w["pop"] }}</td>
+                        <td>{{ w["weather"] }}</td>
+                        <td>{{ w["wind"] }}</td>
+                    </tr>
+
+                    {% endfor %}
+
+                </table>
+            </div>
+
+            <a href="{{url_for('index')}}" class="top">
+                <h3>TOP</h3>
+            </a>
+        </article>
+    </main>
+
+    {% include "footer.html" %}
+
+</body>
+
+</html>

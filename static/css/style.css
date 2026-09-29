@@ -86,20 +86,12 @@ p {
     background: rgba(255, 255, 255, 0.6);
     border-radius: 16px;
     padding: 30px 25px;
-    /* 💡 上下左右の余白をたっぷり広げる */
     margin-bottom: 25px;
     text-align: left;
-
-    /* 💡 読みやすさを決める最重要ポイント */
     line-height: 2.0;
-    /* 行間を通常の2倍に広げてゆったりとさせる */
     font-size: 1.05rem;
-    /* 小さすぎず大きすぎない絶妙なサイズ */
     letter-spacing: 0.06em;
-    /* 文字同士の間隔を少しあけて上品に */
     color: #2d3748;
-    /* 真っ黒(#000)ではなく、目に優しい濃いグレーに */
-
     box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5);
     word-break: break-all;
     overflow-wrap: anywhere;
@@ -321,6 +313,4 @@ footer {
         font-size: 1.5rem;
         word-wrap: break-word;
     }
-
-
 }
